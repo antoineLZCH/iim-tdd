@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CharacterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,5 @@ Route::get('/', function () {
 //Route::post('/items', function() {
 //    App\Items::create(request(['']));
 //});
+
+Route::post('/characters', [CharacterController::class, "store"]);
