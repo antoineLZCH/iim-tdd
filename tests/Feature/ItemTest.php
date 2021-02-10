@@ -14,28 +14,26 @@ class ItemTest extends TestCase
     /**
      * @test
      */
-    public function a_user_can_create_an_object()
+    public function an_item_can_be_created()
     {
 
-//        $this->withoutExceptionHandling();
+        $this->withoutExceptionHandling();
+
         $attributes = [
-            'title' => $this->faker->sentence(5, 3),
+            'title' => $this->faker->firstName(),
             'quality' => $this->faker->randomElement(['common', 'uncommon', 'rare', 'epic', 'legendary', 'artifact']),
-            'type' => $this->faker->sentence,
-            'slot' => $this->faker->randomElement(['weapon', 'gauntlets', 'helmet', 'necklace']),
-            'characteristics' => [
-                "agility" => $this->faker->randomNumber(3),
-                "chance" => $this->faker->randomNumber(3),
-                "charisma" => $this->faker->randomNumber(3),
-                "strength" => $this->faker->randomNumber(3),
-                "intelligence" => $this->faker->randomNumber(3),
-                "spirit" => $this->faker->randomNumber(3),
-                "stamina" => $this->faker->randomNumber(3),
-                "initiative" => $this->faker->randomNumber(3)
-            ]
+            'slot' => $this->faker->randomElement(['helmet', 'shoulder', 'necklace', 'chest', 'wrist', 'hands', 'waist', 'legs', 'feet', 'ring', 'trinket']),
+            "agility" => $this->faker->randomNumber(2),
+            "chance" => $this->faker->randomNumber(2),
+            "charisma" => $this->faker->randomNumber(2),
+            "strength" => $this->faker->randomNumber(2),
+            "intelligence" => $this->faker->randomNumber(2),
+            "spirit" => $this->faker->randomNumber(2),
+            "stamina" => $this->faker->randomNumber(2),
+            "initiative" => $this->faker->randomNumber(2)
         ];
 
-        $this->post('/items', $attributes);
+        $this->post('api/items', $attributes);
 
         $this->assertDatabaseHas('items', $attributes);
     }
