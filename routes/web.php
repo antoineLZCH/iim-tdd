@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdventuresController;
 use Illuminate\Support\Facades\Route;
 
 /*
