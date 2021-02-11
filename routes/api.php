@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AdventuresController;
+use App\Http\Controllers\CharacterController;
+use App\Http\Controllers\ItemsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,3 +22,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('adventures', [AdventuresController::class, "store"]);
+
+Route::post('/characters', [CharacterController::class, "store"]);
+
+Route::get('items', [ItemsController::class, "index"]);
+Route::post('items', [ItemsController::class, "store"]);

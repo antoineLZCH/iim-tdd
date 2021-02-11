@@ -18,6 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Route::post('/items', function() {
-//    App\Items::create(request(['']));
-//});
+
+
+
+Route::post('/characters', [CharacterController::class, "store"]);
